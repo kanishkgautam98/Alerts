@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% include 'includes/cssIncludes.html' %}
+    {% block css %}
+    {% endblock %}
+    <title>Alerts</title>
+  </head>
+  <body>
+    {% include 'includes/jsIncludes.html' %}
+    {% include 'navbar.html' with querry=querry%}
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+</html>

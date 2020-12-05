@@ -1,0 +1,18 @@
+<div class="card col-md-12">
+  <div class="card-body">
+    <h5 class="card-title">{{ post.title }}</h5>
+	 <div class="info" style="color: grey;">
+    <span class="date">
+      <span class="oi oi-calendar"></span>
+      	{{ post.createdDate }}
+    </span>
+    <span class="comments" style="margin-left: 20px;">
+      <span class="oi oi-comment-square"></span>
+      {{ post.comments }} Comments
+    </span>
+  </div>
+    {{ post.mark | safe | truncatewords:50 }}
+  </div>
+  <a href="{{ post.url }}" class="btn btn-primary btn-md reddit-button" target="blank">Visit Post</a>
+
+</div>

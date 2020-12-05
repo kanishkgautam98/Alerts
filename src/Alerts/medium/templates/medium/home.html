@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if not mediumNotifications %}
+	{% include 'includes/empty.html' %}
+{% else %}
+	<div class="list-group" style="margin: 5px;">
+		{% for notification in mediumNotifications %}
+			{% include 'medium/includes/mediumNotification.html' with notification=notification %}
+		{% endfor %}
+	</div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,59 @@
+.content{
+	display: flex;
+	height: 170px;
+	padding: 10px;
+	/*justify-content: center;*/
+	align-items: center;
+	margin-left: 5px;
+	text-align: center;
+}
+
+.notification{
+	text-align: center;
+	width: 700px;
+	color: #212529;
+	padding: 10px;
+	position: relative;
+	top: -10px;
+}
+
+.video-thumbnail {
+	height: 150px;
+	width: 250px;
+	border-radius: 10px;
+}
+.notification-time {
+	text-align: center;
+	color: #808080;
+	position: relative;
+	top: 10px;
+
+}
+.youtube-notification a, a:hover {
+	text-decoration: none;
+}
+
+.channel-logo{
+	border-radius: 50%;
+}
+
+
+.youtube-notification{
+	border: 1px solid rgba(0,0,0,.125);
+	margin: 5px;
+	border-radius: 5px;
+	display: inline-block;
+	max-width: 1055px;
+}
+
+.youtube-notification:hover{
+	background: #f2f0f0;
+}
+
+.video-link{
+	display: block;
+	text-align: center;
+	position: relative;
+	left: -15px;
+}
+

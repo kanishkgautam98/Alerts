@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Messages -->
+{% if messages %}
+{% for message in messages %}
+<div class="alert  {{ message.tags }} alert-dismissible fade show col-md-10 message" role="alert">
+	{{ message | safe}}	
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+{% endfor %}
+{% endif %}
+
+{% if not redditPosts %}
+	{% include 'includes/empty.html' %}
+{% else %}
+
+<div class="row ">
+	<!-- Displaying the reddit posts -->
+	<div class="col-md-10" style="margin-top: 5px;">
+		{% for post in redditPosts %}
+		{% include 'reddit/includes/redditPost.html' with post=post %}
+		{% endfor %}
+	</div>
+
+	<!-- Right had section -->
+	<div class="col-md-2 popular-tags">
+		<!-- Added subreddits in the form of tags -->
+		<h4>Subreddits</h4>
+		{% for sub in subreddits %}
+		<a href="{% url 'reddit:home' sub %}"><span class="label label-default {% if sub == subreddit %} active-sub {% endif %}" >{{ sub }}</span></a>
+		{% endfor %}
+
+		<!-- Form to add new subreddits -->
+		<form action="{% url 'reddit:new' %}" class="new-subreddit-form" method="POST">
+			{% csrf_token %}
+			<div class="form-group">
+				<label for="newSubreddit">Enter a new Subreddit Name</label>
+				<input type="text" class="form-control form-control-sm" id="newSubreddit" placeholder="Enter Subreddit" name="subreddit">
+				<!-- We also send current subreddit so that user is redirected to current reddit only -->
+				<input type="hidden" name="current" value="{{ subreddit }} ">
+			</div>
+			<button type="submit" class="btn btn-primary btn-sm">Submit</button>
+		</form>
+
+		<!-- Remove subreddits -->
+		<a href ="{% url 'reddit:remove' %}" method="GET" class="remove-subreddit-button"><input type="submit" value="Remove" class="btn btn-danger btn-sm" /></a>
+		
+		<hr>
+		<!-- Pending requests section -->
+		<h4 id="pending-requests">Pending Requests</h4>
+		{% if not pending %}
+			<small><i>None</i></small>
+		{% else %}
+			{% for sub in pending %}
+			<span class="label-pending" >{{ sub }}</span>
+			{% endfor %}
+		{% endif %}
+	</div>
+</div>
+{% endif %}
+{% endblock %}

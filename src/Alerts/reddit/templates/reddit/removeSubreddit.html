@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+	{% if messages %}
+		{% for message in messages %}
+			<div class="alert {{ message.tags }} alert-dismissible fade show col-md-10 message" role="alert">
+			{{ message | safe}}	
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		{% endfor %}
+	{% endif %}
+	<div class="row">
+		<div class="col-md-12"  style="margin: 10px;">
+			<h2>Select the subreddits you want to remove</h2>
+		</div>
+		<form action="." method="POST">
+			{% csrf_token %}
+			{% for subreddit in subreddits %}
+				<div class="form-check" style="margin-top: 10px;">
+					<input class="form-check-input" type="checkbox" name = "subreddit" value="{{ subreddit }}" id="{{ subreddit }}">
+						<label class="form-check-label" for="{{subreddit}}">
+							{{ subreddit }}
+						</label>
+				</div>
+			
+		{% endfor %}
+		<button class="btn btn-primary" style="margin-top: 10px;">Submit</button>
+		</form>
+	</div>
+
+{% endblock %}

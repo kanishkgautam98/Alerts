@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if not linkedInPosts %}
+	{% include 'includes/empty.html' %}
+{% else %}
+	<div class="list-group" style="margin: 5px;">
+		{% for post in linkedInPosts %}
+			{% include 'linkedIn/includes/linkedInPost.html' with post=post %}
+		{% endfor %}
+	</div>
+{% endif %}
+
+{% endblock %}

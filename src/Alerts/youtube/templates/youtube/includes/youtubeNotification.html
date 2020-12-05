@@ -1,0 +1,13 @@
+{% load humanize %}
+<a href="{{ notification.getVideoLink }}" class="video-link">
+	<div class="youtube-notification {% if not notification.getAndUpdateReadStatus %} unread {% endif %}">
+	<div class="content">
+		<div class="channel-logo-container">
+			<img src="{{ notification.image }}" class = "channel-logo" alt="">
+			<div class="notification-time"><small><i>{{ notification.time | naturaltime }}</i></small></div>
+		</div>
+		<div class="notification">{{ notification.description }}</div>
+		<div class="video-thumbnail-container"><img src="{{ notification.thumbnail }}" alt="" class="video-thumbnail"></div>
+	</div>
+</div>
+</a>

@@ -1,0 +1,11 @@
+{% load humanize %}
+<a href="#" target="blank" class="list-group-item list-group-item-action flex-column align-items-center"
+>
+<div class="d-flex w-100 justify-content-between">
+	<p class="mb-1" style="margin-right: 20px;">{{ notification.description | safe | truncatewords:50}}</p>
+	<span><img src="{{ notification.image }}" class = "rounded" height="50" width="50"></span>
+</div>
+<span class="oi oi-calendar"></span>
+{{ notification.date | naturaltime }}
+</span>  
+</a>

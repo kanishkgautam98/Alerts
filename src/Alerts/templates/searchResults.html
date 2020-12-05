@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type = "text/css" href="{% static 'youtube/css/youtube.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="search-results">
+	<div class="youtube-search-results">
+	<h3>Youtube Search Results</h3>
+	{% if not youtube %}
+		<h6 class="no-result"><i>Nothing here</i></h6>
+	{% else %}
+		{% for result in youtube %}
+			{% include 'youtube/includes/youtubeNotification.html' with notification=result %}
+		{% endfor %}
+	{% endif %}
+</div>
+
+<hr>
+<div class="medium-search-results">
+	<h3>Medium Search Results</h3>
+	{% if not medium %}
+		<h6 class="no-result"><i>Nothing here</i></h6>
+	{% else %}
+
+	{% for result in medium %}
+	{% include 'medium/includes/mediumNotification.html' with notification=result %}
+	{% endfor %}
+	{% endif %}
+</div>
+<hr>
+
+<div class="reddit-search-results">
+	<h3>Reddit Search Results</h3>
+	{% if not reddit %}
+		<h6 class="no-result"><i>Nothing here</i></h6>
+	{% else %}
+	{% for result in reddit %}
+	{% include 'reddit/includes/redditPost.html' with post=result %}
+	{% endfor %}
+	{% endif %}
+</div>
+
+<hr>
+
+
+<div class="linkedIn-search-results">
+	<h3>LinkedIn Search Results</h3>
+	{% if not linkedIn %}
+		<h6 class="no-result"><i>Nothing here</i></h6>
+	{% else %}
+	{% for result in linkedIn %}
+	{% include 'linkedIn/includes/linkedInPost.html' with post=result %}
+	{% endfor %}
+	{% endif %}
+</div>
+
+</div>
+
+{% endblock %}
