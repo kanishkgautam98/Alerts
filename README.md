@@ -1,7 +1,7 @@
 # Alerts
 
 Alerts is a django based web application that scrarpes your notifications from sites like Youtube, Linkedin, Medium and Reddit.
-![Alerts home page](https://github.com/robinttt333/Alerts/blob/master/Screenshot%20from%202020-08-18%2017-47-34.png)
+![Alerts home page](https://github.com/kanishkgautam98/Alerts/blob/main/Screenshot%20from%202020-08-18%2017-47-34.png)
 
 ## Getting Started
 To get a local copy up and running follow these simple example steps.
@@ -14,7 +14,7 @@ Ensure that you have these installed on your system
 ### Installation
 1. Clone the repository by typing 
 ``` 
-git clone https://github.com/robinttt333/Alerts 
+git clone https://github.com/kanishkgautam98/Alerts 
 ```
 in your terminal. Next **cd** into **Alerts** directory and type in 
 ```
@@ -62,12 +62,12 @@ python manage.py runserver
 celery -A Alerts worker -l info
 ```
 You should see something like this
-![celery worker](https://github.com/robinttt333/Alerts/blob/master/Screenshot%20from%202020-08-18%2018-31-29.png)
+![celery worker](https://github.com/kanishkgautam98/Alerts/blob/main/Screenshot%20from%202020-08-18%2018-31-29.png)
 8. Lastly open up a third terminal instance and type in
 ```sh
 celery -A proj beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
 ```
-![celery beat](https://github.com/robinttt333/Alerts/blob/master/Screenshot%20from%202020-08-18%2018-33-00.png)
+![celery beat](https://github.com/kanishkgautam98/Alerts/blob/main/Screenshot%20from%202020-08-18%2018-33-00.png)
 
 9.In **settings.py** you will have 
 ```python 
